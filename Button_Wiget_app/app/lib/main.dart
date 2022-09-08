@@ -75,6 +75,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: TextStyle(backgroundColor: Colors.amberAccent),
                   ),
                 ),
+                IconButton(
+                  icon: Icon(Icons.star_border_outlined),
+                  onPressed: () {
+                    debugPrint('IconButton');
+                  },
+                ),
                 //< 엘레베이트버튼
                 ElevatedButton(
                   onPressed: (() {
