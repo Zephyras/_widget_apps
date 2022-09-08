@@ -37,15 +37,14 @@ class _MyHomePageState extends State<MyHomePage> {
     Map<String, dynamic> userMap = jsonDecode(json);
 
     var user = User.fromJson(userMap);
+    var jsonData = user.toJson();
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Container(
-        child: Column(
-          children: [Text(
-            'name: ${userMap['name']} \n email: ${userMap['email']} \n created_time: ${userMap['created_time']}',textScaleFactor: 2,
-          ),],
+      body: Center(
+        child: Text(
+          'name: ${user.name} \n email: ${user.email} \n created_time: ${user.createdTime} \n toJson: ${jsonData}',textScaleFactor: 2,
         ),
       ),
     );
@@ -56,14 +55,16 @@ class _MyHomePageState extends State<MyHomePage> {
 class User{
   final String name;
   final String email;
-  final String createdTime;
+  final int createdTime;
 
   User(this.name, this.email, this.createdTime);
 
+  //formJson
   User.fromJson(Map<String, dynamic> json)
       : name = json['name'],
         email = json['email'],
         createdTime = json['created_time'];
+  //ToJosn
   Map<String, dynamic> toJson() =>
       {
         'name': name,
