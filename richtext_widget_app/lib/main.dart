@@ -61,8 +61,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   TextSpan(
                     text: 'Text.rich TextSpan'),
+                  TextSpan(
+                    text:'TextSpan widget',
+                    style: TextStyle(color:  Colors.red),
+                  ),
               ],
-              ))//TextSpan()
+              )),
+
             ],
           ),
         ),
