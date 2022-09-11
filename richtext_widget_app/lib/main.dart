@@ -46,15 +46,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: DefaultTextStyle.of(context).style,
                   children: [
                     TextSpan(
-                      text: 'Bold', style: TextStyle(fontWeight: FontWeight.bold
+                      text: 'Bold\n', style: TextStyle(fontWeight: FontWeight.bold
                     )
                     ),
                     TextSpan(
-                        text: 'Bold', style: TextStyle(fontWeight: FontWeight.normal
+                        text: 'Bold\n', style: TextStyle(fontWeight: FontWeight.normal
                     )
                     ),
+                    TextSpan(text: 'Bold\n', style: TextStyle(color: Colors.black, fontSize: 36),)
                   ]),
                 ),
+              //Text.rich
               Text.rich(
                 TextSpan(
                 text: 'text.rich widget\n',
