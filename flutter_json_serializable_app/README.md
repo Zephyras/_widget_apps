@@ -10,9 +10,9 @@ part 'user.g.dart'; //임포트 밑에 작성
 @JsonSerializable()
 @JsonKey(name:'createdtime')
 
-_${클래스명}FromJson(json)
+####_${클래스명}FromJson(json)
 //formJson
-factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+####factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
 _${클래스명}ToJson(this);
 //ToJosn
