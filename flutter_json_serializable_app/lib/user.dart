@@ -4,12 +4,18 @@ import 'package:json_annotation/json_annotation.dart';
 part 'user.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class User{
+class User {
   final String name;
   final String email;
-  @JsonKey(name:'createdtime')
+  final Address adress;
+  @JsonKey(name: 'createdtime')
   final int createdTime;
-  User(this.name, this.email, this.createdTime, );
+  User(
+    this.name,
+    this.email,
+    this.createdTime,
+    this.adress,
+  );
 
   //formJson
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

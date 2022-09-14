@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:convert';
+
+import 'package:flutter/material.dart';
 
 import 'user.dart';
 
@@ -22,17 +23,20 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   final String title;
-  const MyHomePage({required this.title});
+  const MyHomePage({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    String json = '{"name":"홍길동","email":"honggildong@example.com","createdtime":11100722}';
+    String json =
+        '{"name":"홍길동","email":"honggildong@example.com","createdtime":11100722,"adress":{"street":"mainstreet", "city":"houston"}}';
     Map<String, dynamic> userMap = jsonDecode(json);
 
     var user = User.fromJson(userMap);
@@ -43,10 +47,10 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Text(
-          'name: ${user.name} \n email: ${user.email} \n created_time: ${user.createdTime} \n toJson: ${jsonData}',textScaleFactor: 2,
+          'name: ${user.name} \n email: ${user.email} \n created_time: ${user.createdTime} \n toJson: ${jsonData}',
+          textScaleFactor: 2,
         ),
       ),
     );
   }
 }
-
