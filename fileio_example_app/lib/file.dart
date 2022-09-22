@@ -1,3 +1,4 @@
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -15,11 +16,7 @@ class FileApp extends StatefulWidget {
 
 class _FileApp extends State<FileApp> {
   int _counter = 0;
-
-  List<String> itemList = List.empty(growable: true);
-  TextEditingController controller = TextEditingController();
-
-  Future<List<String>> readListFile() async {
+  Future<List<String>> readListFile() async{
     List<String> itemList = new List.empty(growable: true);
     var key = 'first';
     SharedPreferences pref = await SharedPreferences.getInstance();
@@ -27,78 +24,63 @@ class _FileApp extends State<FileApp> {
     var dir = await getApplicationDocumentsDirectory();
     bool fileExist = await File(dir.path + '/fruit.txt').exists();
 
-    if (firstCheck == null || firstCheck == false || fileExist == false) {
+    if(firstCheck == null || firstCheck == false || fileExist == false){
       pref.setBool(key, true);
-      var file = await DefaultAssetBundle.of(context)
-          .loadString('assets/repo/fruit.txt');
+      var file = await DefaultAssetBundle.of(context).loadString('assets/repo/fruit.txt');
       File(dir.path + '/fruit.txt').writeAsString(file);
 
       var array = file.split('\n');
-      for (var item in array) {
-        print(item);
-        itemList.add(item);
+      for(var item in array){
+
       }
-      return itemList;
-    } else {
-      var file = await File(dir.path + '/fruit.txt').readAsString();
-      var array = file.split('\n');
-      for (var item in array) {
-        print(item);
-        itemList.add(item);
-      }
-      return itemList;
     }
   }
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     readCountFile();
   }
-
-  void initData() async {
-    var result = await readListFile();
-    setState(() {
-      itemList.addAll(result);
-    });
-  }
-
   void _incrementCounter() {
     setState(() {
       _counter++;
+
     });
     writeCountFile(_counter);
   }
 
-  void writeCountFile(int count) async {
+  void writeCountFile(int count) async{
     var dir = await getApplicationDocumentsDirectory();
     File(dir.path + '/count.txt').writeAsString(count.toString());
   }
 
-  void readCountFile() async {
-    try {
+  void readCountFile() async{
+    try{
       var dir = await getApplicationDocumentsDirectory();
       var file = await File(dir.path + '/count.txt').readAsString();
       print(file);
       setState(() {
         _counter = int.parse(file);
       });
-    } catch (e) {
+    }
+    catch(e){
       print(e.toString());
     }
   }
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
+
         title: Text(widget.title),
       ),
       body: Center(
-        child: Text(
-          '$_counter',
-          style: TextStyle(fontSize: 40),
+        child: Center(
+          child: Text('$_counter',
+            style: TextStyle(fontSize: 40),
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
