@@ -32,19 +32,21 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: GestureDetector(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: GestureDetector(
           onTap: () {
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: ((context) => PageRoute())));
           },
           child: Hero(
             tag: "tag",
-            child: Container(),) 
-          ),
-        ));
+            child: Image.network(
+              'https://cdn.pixabay.com/photo/2022/09/21/05/39/birds-7469509_1280.jpg',
+            ),
+          )),
+    );
   }
 }
 
